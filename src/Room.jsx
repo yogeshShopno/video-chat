@@ -1,30 +1,24 @@
 import { useState } from "react";
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 
 import { useLocation  } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Room() {
   const location = useLocation();
   const { roomCode } = location.state || {}; 
+  const history = useHistory();
 
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
       {/* Navbar */}
       <div className="absolute top-0 w-full flex justify-between items-center p-4 bg-gray-800 shadow-md">
         <h1 className="text-2xl font-bold text-white">Video Chat</h1>
-        <div>
         <button
-          className="px-4  m-2 py-2 bg-red-500 rounded-lg font-semibold hover:bg-red-600"
-          onClick={() => alert("signup  !")}
-        >
-          Signup
-        </button>
-        <button
-          className="px-4 m-2 py-2 bg-red-500 rounded-lg font-semibold hover:bg-red-600"
-          onClick={() => alert("login !")}
-        >
-          Login
-        </button>
-        </div>
+        onClick={() => history.push('/dashboard')}
+        className="px-4 py-2 bg-red-500 rounded-lg font-semibold hover:bg-red-600"
+      >
+        Start Videocall
+      </button>
         
       </div>
 
