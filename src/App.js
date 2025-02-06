@@ -11,7 +11,7 @@ function App() {
       <Router>
     <Routes>
       <Route path="/" element={<Dashboard />} />
-      <Route path="/target-page" element={<Signup />} />
+      <Route path="/signup" element={<Signup />} />
     </Routes>
   </Router>
 
