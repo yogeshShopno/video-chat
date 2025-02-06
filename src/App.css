@@ -115,18 +115,53 @@
 
 
 
-.dashboard-container {
-  background: linear-gradient(135deg, #222222, #1e1e1e);
-  min-height: 100vh;
+.dashboard-container-signup {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
   padding: 20px;
+  background: linear-gradient(135deg, #222222, #1e1e1e);
+  min-height: 100vh;
 }
 
-.dashboard-container .dashboard-card {
+.auth-buttons {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px;
+}
+
+.auth-button.sign-up {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #4299e1;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0, 255, 255, 0.2);
+}
+
+.auth-button.sign-up:hover {
+  background-color: #3182ce;
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex: 1;
+}
+
+.dashboard-card {
   background: rgba(25, 25, 25, 0.95);
   border-radius: 16px;
   box-shadow: 0px 8px 30px rgba(0, 255, 255, 0.1);
@@ -140,20 +175,20 @@
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.dashboard-container .dashboard-card h2 {
+.dashboard-card h2 {
   font-size: 32px;
   color: #00ffff;
   margin-bottom: 20px;
   font-weight: 600;
 }
 
-.dashboard-container .dashboard-card p {
+.dashboard-card p {
   font-size: 18px;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
 }
 
-.dashboard-container .input-field {
+.input-field {
   width: 100%;
   padding: 14px;
   margin-top: 16px;
@@ -165,18 +200,17 @@
   transition: all 0.3s ease;
 }
 
-.dashboard-container .input-field::placeholder {
+.input-field::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.dashboard-container .input-field:focus {
+.input-field:focus {
   border-color: #00ffff;
   box-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
   outline: none;
 }
 
-/* Create Room Button */
-.dashboard-container .create-room-button {
+.create-room-button {
   padding: 14px 22px;
   margin-top: 20px;
   background-color: #4299e1;
@@ -190,12 +224,12 @@
   box-shadow: 0 5px 12px rgba(0, 255, 255, 0.2);
 }
 
-.dashboard-container .create-room-button:hover {
+.create-room-button:hover {
   background-color: #3182ce;
   box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
 }
 
-.dashboard-container .join-button {
+.join-button {
   padding: 10px 22px;
   margin-top: 16px;
   background-color: #48bb78;
@@ -209,12 +243,12 @@
   box-shadow: 0 5px 12px rgba(0, 255, 255, 0.2);
 }
 
-.dashboard-container .join-button:hover {
+.join-button:hover {
   background-color: #38a169;
   box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
 }
 
-.dashboard-container .dashboard-footer {
+.dashboard-footer {
   position: fixed;
   bottom: 20px;
   font-size: 14px;
@@ -226,31 +260,32 @@
   border-radius: 8px;
 }
 
-.dashboard-container .dashboard-footer a {
+.dashboard-footer a {
   color: #00ffff;
   text-decoration: none;
 }
 
-.dashboard-container .dashboard-footer a:hover {
+.dashboard-footer a:hover {
   text-decoration: underline;
 }
 
-/* Responsive design */
 @media (max-width: 500px) {
-  .dashboard-container .dashboard-card {
+  .dashboard-card {
     padding: 30px;
     max-width: 80%;
   }
 
-  .dashboard-container .dashboard-footer {
+  .dashboard-footer {
     position: relative;
     bottom: auto;
     padding: 10px;
   }
-  .dashboard-container .input-field{
+
+  .input-field {
     width: 90%;
   }
-  .dashboard-container .create-room-button {
+
+  .create-room-button {
     padding: 14px 77px;
   }
 }
