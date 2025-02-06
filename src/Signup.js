@@ -17,35 +17,35 @@ function Signup() {
     }, [url]);
 
     const handleSubmit = async (event, isSignup) => {
-        event.preventDefault(); // Prevent default form submission
-        
+        event.preventDefault();
+
         const endpoint = isSignup ? "signup" : "login";
         const url = `http://localhost:5000/user/${endpoint}`;
-    
         const payload = { email, password };
-    
+
         try {
             const response = await axios.post(url, payload, {
                 headers: {
-                    "Content-Type": "application/json", // Ensure JSON format
+                    "Content-Type": "application/json",
                 },
             });
-    
-            if (response.data.status === true) {
-                console.log(response.data.message);
-                localStorage.setItem("token", response.data.token);
-                 alert("Login successfully") 
-                navigate("/"); // Redirect after successful login/signup
-            } else {
-                console.error("Failed to process request");
-                alert("please try after sometime") 
 
+            if (response.data.status === true) {
+                localStorage.setItem("token", response.data.token);
+                alert("Login successfully")
+                navigate("/");
+
+
+            } else {
+                alert(response.data.message);
             }
         } catch (error) {
+            alert("Error sending request");
+       
             console.error("Error sending request:", error);
         }
     };
-    
+
 
     return (
         <div className="section-container">
@@ -76,7 +76,7 @@ function Signup() {
                     </label>
                     <button type="submit">{isSignup ? "Sign Up" : "Login"}</button>
                     <p>
-                        {isSignup ? "Already have an account?" : "Don't have an account?"} 
+                        {isSignup ? "Already have an account?" : "Don't have an account?"}
                         <span onClick={() => setIsSignup(!isSignup)}>
                             {isSignup ? " Login" : " Sign up"}
                         </span>
