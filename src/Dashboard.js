@@ -45,7 +45,7 @@ export default function Dashboard() {
               )}
               {/* Join Room Input & Button */}
               {user ? (
-                <div className="flex">
+                <div style={{display:"flex",gap:"20px"}}>
                   <input
                     type="text"
                     placeholder="Enter Room Code"
