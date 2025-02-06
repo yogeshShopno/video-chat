@@ -113,3 +113,144 @@
   }
 }
 
+
+
+.dashboard-container {
+  background: linear-gradient(135deg, #222222, #1e1e1e);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.dashboard-card {
+  background: rgba(25, 25, 25, 0.95);
+  border-radius: 16px;
+  box-shadow: 0px 8px 30px rgba(0, 255, 255, 0.1);
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  color: #e0e0e0;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.dashboard-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 15px 50px rgba(0, 255, 255, 0.2);
+}
+
+.dashboard-card h2 {
+  font-size: 32px;
+  color: #00ffff;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.dashboard-card p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+/* Room Code input */
+.input-field {
+  width: 100%;
+  padding: 14px;
+  margin-top: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-field:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+  outline: none;
+}
+
+/* Create Room Button */
+.create-room-button {
+  padding: 14px 22px;
+  margin-top: 20px;
+  background-color: #4299e1;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0, 255, 255, 0.2);
+}
+
+.create-room-button:hover {
+  background-color: #3182ce;
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Join Room Button */
+.join-button {
+  padding: 14px 22px;
+  margin-top: 20px;
+  background-color: #48bb78;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0, 255, 255, 0.2);
+}
+
+.join-button:hover {
+  background-color: #38a169;
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+/* Footer Styling */
+.dashboard-footer {
+  position: fixed;
+  bottom: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+}
+
+.dashboard-footer a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+.dashboard-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+  .dashboard-card {
+    padding: 30px;
+    max-width: 90%;
+  }
+
+  .dashboard-footer {
+    position: relative;
+    bottom: auto;
+    padding: 10px;
+  }
+}
