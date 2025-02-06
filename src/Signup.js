@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 function Signup() {
-    const [toggle, setToggle] = useState("hi");
-
+    const [isSignup, setIsSignup] = useState(true);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [url, seturl] = useState("");
+    const [url, setUrl] = useState("");
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (url) {
@@ -17,44 +16,42 @@ function Signup() {
         }
     }, [url]);
 
-    const handleSubmit = async (y) => {
-        if (y == 0) {
-            seturl("http://localhost:5000/user/signup")
-
-            console.log(seturl, "signup")
-        } else if (y == 1) {
-            seturl("http://localhost:5000/user/login")
-            console.log(seturl, "signup")
-
-        }
-
-
-        const payload = {
-            email: email,
-            password: password,
-        };
-
+    const handleSubmit = async (event, isSignup) => {
+        event.preventDefault(); // Prevent default form submission
+        
+        const endpoint = isSignup ? "signup" : "login";
+        const url = `http://localhost:5000/user/${endpoint}`;
+    
+        const payload = { email, password };
+    
         try {
-            const response = await axios.post(url, payload);
-
-            if (response.data.status === 200) {
+            const response = await axios.post(url, payload, {
+                headers: {
+                    "Content-Type": "application/json", // Ensure JSON format
+                },
+            });
+    
+            if (response.data.status === true) {
                 console.log(response.data.message);
+                localStorage.setItem("token", response.data.token);
+                 alert("Login successfully") 
+                navigate("/"); // Redirect after successful login/signup
             } else {
                 console.error("Failed to process request");
+                alert("please try after sometime") 
+
             }
         } catch (error) {
             console.error("Error sending request:", error);
         }
     };
+    
 
-
-    return (<>
+    return (
         <div className="section-container">
             <div className="signup-card">
-
-                {toggle ? <h2>Sign Up</h2> : <h2>Login</h2>}
-
-                <form >
+                <h2>{isSignup ? "Sign Up" : "Login"}</h2>
+                <form onSubmit={(e) => handleSubmit(e, isSignup)}>
                     <label>
                         <input
                             type="email"
@@ -77,18 +74,17 @@ function Signup() {
                             required
                         />
                     </label>
-                    {
-                        toggle ? <button onClick={() => handleSubmit(0)} type="submit">Sign Up</button> : <button onClick={() => handleSubmit(1)} type="submit">Login</button>
-
-
-                    }
+                    <button type="submit">{isSignup ? "Sign Up" : "Login"}</button>
                     <p>
-                        Already have an account? <span onClick={() => { setToggle(!toggle) }}>{toggle ? "Sign up" : "login"}</span>
+                        {isSignup ? "Already have an account?" : "Don't have an account?"} 
+                        <span onClick={() => setIsSignup(!isSignup)}>
+                            {isSignup ? " Login" : " Sign up"}
+                        </span>
                     </p>
                 </form>
             </div>
         </div>
-    </>)
+    );
 }
-;
+
 export default Signup;

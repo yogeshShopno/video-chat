@@ -1,20 +1,17 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { useNavigate ,useLocation  } from "react-router-dom";
-import axios from "axios";
-
+import React from "react";
 
 function Room() {
-    const { roomcode } = location.state;  // Default to an empty object if no state is passed
+  return (
+    <div style={{ height: "100vh", width: "100vw", border: 0 }}>
+      <iframe
+        allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+        src="https://sfu.mirotalk.com/newroom"
+        style={{ height: "100%", width: "100%", border: "none" }}
+        title="Video Chat Room"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+}
 
-    return (
-        <div>
-          <iframe
-            allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-            src={`https://video-chat-clone.netlify.app/room/${roomcode}`}
-            style={{ height: '100vh', width: '100vw', border: '0' }}
-          ></iframe>
-        </div>
-      );
-};
 export default Room;
