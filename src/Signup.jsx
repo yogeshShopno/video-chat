@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export default function Signup() {
 
-  const { roomCode } = location.state || {}; 
 
 
   return (
