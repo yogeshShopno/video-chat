@@ -28,7 +28,6 @@ export default function Dashboard() {
           <div className="auth-buttons">
             <button onClick={() => navigate("/signup")} className="auth-button sign-up">Sign Up</button>
           </div>
-
           <div className="dashboard-container">
             <div>
               <div className="dashboard-card">
@@ -40,7 +39,7 @@ export default function Dashboard() {
                     Start or join a video call instantly with a unique room code.
                   </p>
                   <div className="flex space-x-4 mt-6">
-                    {/* Create Room Button */}
+
                     <button
                       onClick={createRoom}
                       className="create-room-button"
@@ -50,7 +49,7 @@ export default function Dashboard() {
                     {createRoomCode && (
                       <p className="text-lg text-gray-400 mb-6 mt-5">{createRoomCode}</p>
                     )}
-                    {/* Join Room Input & Button */}
+
                     {token ? (
                       <div className="flex">
                         <input
@@ -61,24 +60,19 @@ export default function Dashboard() {
                           className="input-field"
                         />
                         <button onClick={() => { navigate("/room") }} className="join-button">Join</button>
-                        {/* <button onClick={() => navigate("/target-page")}>Check</button> */}
+
                       </div>
                     ) : (
                       <p>Please log in to create a room</p>
                     )}
                   </div>
-
                 </div>
-
-                {/* Footer */}
-
               </div>
-
             </div>
           </div>
           <div className="dashboard-footer">
             Built with ❤️ using React & Node. <br />
-            <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://nodejs.org/en" target="_blank" rel="noopener noreferrer">
               Learn More
             </a>
           </div>
