@@ -53,8 +53,7 @@ export default function Dashboard() {
                     onChange={(e) => setRoomCode(e.target.value)}
                     className="input-field"
                   />
-                  <button className="join-button">Join</button>
-                  {/* <button onClick={() => navigate("/target-page")}>Check</button> */}
+                  <button className="join-button"  onClick={() => navigate("/room",{ state: {roomCode} })}>Join</button>
                 </div>
               ) : (
                 <p>Please log in to create a room</p>
