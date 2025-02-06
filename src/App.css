@@ -115,13 +115,50 @@
 
 
 
-.dashboard-container {
+.dashboard-container-signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
   background: linear-gradient(135deg, #222222, #1e1e1e);
   min-height: 100vh;
+}
+
+.auth-buttons {
   display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px;
+}
+
+.auth-button.sign-up {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background-color: #4299e1;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 12px rgba(0, 255, 255, 0.2);
+}
+
+.auth-button.sign-up:hover {
+  background-color: #3182ce;
+  box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  flex: 1;
 }
 
 .dashboard-card {
@@ -138,11 +175,6 @@
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.dashboard-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 15px 50px rgba(0, 255, 255, 0.2);
-}
-
 .dashboard-card h2 {
   font-size: 32px;
   color: #00ffff;
@@ -156,7 +188,6 @@
   margin-bottom: 20px;
 }
 
-/* Room Code input */
 .input-field {
   width: 100%;
   padding: 14px;
@@ -179,7 +210,6 @@
   outline: none;
 }
 
-/* Create Room Button */
 .create-room-button {
   padding: 14px 22px;
   margin-top: 20px;
@@ -199,10 +229,9 @@
   box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
 }
 
-/* Join Room Button */
 .join-button {
-  padding: 14px 22px;
-  margin-top: 20px;
+  padding: 10px 22px;
+  margin-top: 16px;
   background-color: #48bb78;
   color: white;
   font-size: 18px;
@@ -219,7 +248,6 @@
   box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
 }
 
-/* Footer Styling */
 .dashboard-footer {
   position: fixed;
   bottom: 20px;
@@ -241,16 +269,23 @@
   text-decoration: underline;
 }
 
-/* Responsive design */
 @media (max-width: 500px) {
   .dashboard-card {
     padding: 30px;
-    max-width: 90%;
+    max-width: 80%;
   }
 
   .dashboard-footer {
     position: relative;
     bottom: auto;
     padding: 10px;
+  }
+
+  .input-field {
+    width: 90%;
+  }
+
+  .create-room-button {
+    padding: 14px 77px;
   }
 }
