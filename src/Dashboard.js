@@ -15,13 +15,12 @@ const [user, setUser] = useState(null);
     }
    
   };
-
   
   return (
     <div className="h-screen flex flex-col items-center justify-center bg-gray-900 text-white">
       {/* Navbar */}
       <div className="absolute top-0 w-full flex justify-between items-center p-4 bg-gray-800 shadow-md">
-        <h1 className="text-2xl font-bold text-white">Video Chat</h1>
+        <h1 className="text-2xl font-bold text-white">Video Chat 22s</h1>
       </div>
 
       {/* Main Content */}
