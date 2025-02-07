@@ -20,7 +20,7 @@ function Signup() {
         event.preventDefault();
 
         const endpoint = isSignup ? "signup" : "login";
-        const url = `http://localhost:5000/user/${endpoint}`;
+        const url = `https://miro-back.vercel.app/user/${endpoint}`;
         const payload = { email, password };
 
         try {
