@@ -22,7 +22,7 @@ function Signup() {
         const endpoint = isSignup ? "signup" : "login";
         const url = `http://localhost:5000/user/${endpoint}`;
         const payload = { email, password };
-
+``
         try {
             const response = await axios.post(url, payload, {
                 headers: {
